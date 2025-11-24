@@ -50,7 +50,12 @@ export function useChecklist() {
   const [state, setState] = useState<ChecklistState>(() => {
     try {
       const saved = localStorage.getItem(STORAGE_KEY);
-      return saved ? JSON.parse(saved) : initialState;
+      if (saved) {
+        const parsedState = JSON.parse(saved);
+        // Force checklist to be visible by default
+        return { ...parsedState, isVisible: true };
+      }
+      return initialState;
     } catch {
       return initialState;
     }
