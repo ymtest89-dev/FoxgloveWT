@@ -42,7 +42,7 @@ const initialItems: ChecklistItem[] = [
 ];
 
 const initialState: ChecklistState = {
-  isVisible: false,
+  isVisible: true,
   items: initialItems,
 };
 
