@@ -1,27 +1,17 @@
-import { X, Award } from 'lucide-react';
+import { Award } from 'lucide-react';
 import ChecklistItem from './ChecklistItem';
 import { useChecklist } from '../hooks/useChecklist';
 
 export default function ChecklistPanel() {
-  const { checklistState, hideChecklist, completedCount, totalCount } = useChecklist();
-
-  if (!checklistState.isVisible) {
-    return null;
-  }
+  const { checklistState, completedCount, totalCount } = useChecklist();
 
   const isCompleted = completedCount === totalCount;
 
   return (
-    <div className="fixed right-0 top-0 h-full w-80 bg-white shadow-xl border-l border-gray-200 z-50 transform transition-transform duration-300 ease-in-out">
+    <div className="w-80 bg-white shadow-xl border-l border-gray-200">
       <div className="flex flex-col h-full">
-        <div className="flex items-center justify-between p-4 border-b border-gray-200">
+        <div className="flex items-center p-4 border-b border-gray-200">
           <h2 className="text-lg font-semibold text-gray-900">Get started checklist</h2>
-          <button
-            onClick={hideChecklist}
-            className="p-1 rounded-md hover:bg-gray-100 transition-colors"
-          >
-            <X size={20} className="text-gray-500" />
-          </button>
         </div>
 
         <div className="flex-1 overflow-y-auto">

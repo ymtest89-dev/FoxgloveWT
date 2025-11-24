@@ -14,7 +14,7 @@ const resourceLinks = [
 
 function App() {
   const fileInputRef = useRef<HTMLInputElement>(null);
-  const { showChecklist, markItemCompleted } = useChecklist();
+  const { markItemCompleted } = useChecklist();
 
   const handleFileUpload = () => {
     fileInputRef.current?.click();
@@ -24,7 +24,6 @@ function App() {
     const files = event.target.files;
     if (files && files.length > 0) {
       markItemCompleted('load-data');
-      showChecklist();
     }
   };
 
